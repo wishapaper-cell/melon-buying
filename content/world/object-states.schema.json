@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "华强买瓜三态物品配置",
+  "type": "object",
+  "required": ["formatVersion", "objects"],
+  "properties": {
+    "formatVersion": { "const": 1 },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "states", "initialState"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "states": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "initialState": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

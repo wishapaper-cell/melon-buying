@@ -1,0 +1,48 @@
+{
+  "$schema": "./story-blueprint.schema.json",
+  "formatVersion": 1,
+  "storylineId": "melon_main",
+  "cast": ["HUAQIANG", "HAO_GE", "NEIGHBOR"],
+  "allowedObjects": [
+    "single_melon",
+    "melon_pile",
+    "hao_scale_prop",
+    "hidden_magnet",
+    "scale_weight",
+    "melon_knife",
+    "cutting_table",
+    "short_stool_prop",
+    "black_motorcycle"
+  ],
+  "allowedCommands": ["MOVE_TO", "FACE", "EMOTE", "SPEAK", "INTERACT", "WAIT"],
+  "rules": {
+    "maxBeats": 12,
+    "maxCommandsPerBeat": 8,
+    "maxDialogueLength": 40,
+    "instantObjectTransfer": true,
+    "requireInteractionDistance": 1,
+    "generateWinningBranchOnly": true
+  },
+  "anchors": [
+    {
+      "id": "melon_counter",
+      "position": { "column": 20, "row": 15 },
+      "faceTarget": "HAO_GE"
+    },
+    {
+      "id": "scale_front",
+      "position": { "column": 20, "row": 14 },
+      "faceTarget": "hao_scale_prop"
+    },
+    {
+      "id": "cutting_table_front",
+      "position": { "column": 19, "row": 18 },
+      "faceTarget": "cutting_table"
+    }
+  ],
+  "fallback": {
+    "blockedMovement": "等待路人通过后重新寻路",
+    "occupiedObject": "保留当前事实并使用对白降级",
+    "missingAsset": "使用同朝向普通站姿，不阻塞剧情"
+  }
+}

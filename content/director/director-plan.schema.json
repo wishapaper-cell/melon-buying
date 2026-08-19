@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "剧情导演 Agent 执行计划",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "planId",
+    "nodeId",
+    "winningChoiceId",
+    "basedOnWorldRevision",
+    "requiredLocks",
+    "beats",
+    "fallbackNodeId"
+  ],
+  "properties": {
+    "planId": { "type": "string", "minLength": 1 },
+    "nodeId": { "type": "string", "minLength": 1 },
+    "winningChoiceId": { "enum": ["A", "B", "C"] },
+    "basedOnWorldRevision": { "type": "integer", "minimum": 0 },
+    "requiredLocks": {
+      "type": "array",
+      "uniqueItems": true,
+      "maxItems": 20,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "beats": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "items": { "$ref": "#/$defs/beat" }
+    },
+    "fallbackNodeId": { "type": "string", "minLength": 1 }
+  },
+  "$defs": {
+    "gridPosition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["column", "row"],
+      "properties": {
+        "column": { "type": "integer", "minimum": 0, "maximum": 31 },
+        "row": { "type": "integer", "minimum": 0, "maximum": 23 }
+      }
+    },
+    "beat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "commands"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 18
+        },
+        "commands": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": { "$ref": "#/$defs/command" }
+        },
+        "sanDelta": { "type": "integer", "minimum": -20, "maximum": 20 },
+        "tensionDelta": {
+          "type": "integer",
+          "minimum": -20,
+          "maximum": 20
+        }
+      }
+    },
+    "command": {
+      "oneOf": [
+        { "$ref": "#/$defs/moveTo" },
+        { "$ref": "#/$defs/face" },
+        { "$ref": "#/$defs/emote" },
+        { "$ref": "#/$defs/speak" },
+        { "$ref": "#/$defs/interact" },
+        { "$ref": "#/$defs/wait" }
+      ]
+    },
+    "moveTo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "actorId", "destination"],
+      "properties": {
+        "command": { "const": "MOVE_TO" },
+        "actorId": { "type": "string" },
+        "destination": {
+          "oneOf": [
+            { "const": "nearest_interaction_cell" },
+            { "$ref": "#/$defs/gridPosition" }
+          ]
+        },
+        "targetId": { "type": "string" },
+        "faceTarget": { "type": "boolean" }
+      }
+    },
+    "face": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "actorId", "targetId"],
+      "properties": {
+        "command": { "const": "FACE" },
+        "actorId": { "type": "string" },
+        "targetId": { "type": "string" }
+      }
+    },
+    "emote": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "actorId", "expression"],
+      "properties": {
+        "command": { "const": "EMOTE" },
+        "actorId": { "type": "string" },
+        "expression": { "type": "string" }
+      }
+    },
+    "speak": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "actorId", "text"],
+      "properties": {
+        "command": { "const": "SPEAK" },
+        "actorId": { "type": "string" },
+        "text": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "expression": { "type": "string" }
+      }
+    },
+    "interact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "actorId", "targetId", "interaction"],
+      "properties": {
+        "command": { "const": "INTERACT" },
+        "actorId": { "type": "string" },
+        "targetId": { "type": "string" },
+        "interaction": {
+          "oneOf": [
+            { "$ref": "#/$defs/pickUp" },
+            { "$ref": "#/$defs/place" },
+            { "$ref": "#/$defs/drop" },
+            { "$ref": "#/$defs/cut" }
+          ]
+        }
+      }
+    },
+    "pickUp": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "actorId", "objectId"],
+      "properties": {
+        "action": { "const": "PICK_UP" },
+        "actorId": { "type": "string" },
+        "objectId": { "type": "string" },
+        "socket": {
+          "enum": ["LEFT_HAND", "RIGHT_HAND", "BOTH_HANDS"]
+        }
+      }
+    },
+    "place": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "actorId", "objectId", "targetId"],
+      "properties": {
+        "action": { "const": "PLACE" },
+        "actorId": { "type": "string" },
+        "objectId": { "type": "string" },
+        "targetId": { "type": "string" },
+        "gridPosition": { "$ref": "#/$defs/gridPosition" }
+      }
+    },
+    "drop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "actorId",
+        "objectId",
+        "gridPosition"
+      ],
+      "properties": {
+        "action": { "const": "DROP" },
+        "actorId": { "type": "string" },
+        "objectId": { "type": "string" },
+        "gridPosition": { "$ref": "#/$defs/gridPosition" }
+      }
+    },
+    "cut": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "actorId", "objectId", "targetId"],
+      "properties": {
+        "action": { "const": "CUT" },
+        "actorId": { "type": "string" },
+        "objectId": { "type": "string" },
+        "targetId": { "type": "string" }
+      }
+    },
+    "wait": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "durationMs"],
+      "properties": {
+        "command": { "const": "WAIT" },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8000
+        }
+      }
+    }
+  }
+}

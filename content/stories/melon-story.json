@@ -1,0 +1,2182 @@
+{
+  "$schema": "../schema/story.schema.json",
+  "formatVersion": 1,
+  "id": "huaqiang-melon-story",
+  "title": "华强买瓜：无限世界线",
+  "description": "可由多人协作编辑的主剧情、站位与表情数据。",
+  "entryNodeId": "arrival",
+  "canonRoute": [
+    "arrival",
+    "ask_price",
+    "pick_melon",
+    "guarantee",
+    "weigh_melon",
+    "reveal_magnet",
+    "cut_melon",
+    "vendor_confronts",
+    "hao_fall_1",
+    "hao_injured",
+    "canon_exit"
+  ],
+  "characters": {
+    "HUAQIANG": {
+      "displayName": "华强",
+      "initialPosition": {
+        "column": 4,
+        "row": 22
+      },
+      "defaultExpression": "idle",
+      "expressions": {
+        "idle": {
+          "pose": "idle",
+          "animation": "breathe"
+        },
+        "talk": {
+          "pose": "talk",
+          "animation": "talk",
+          "mouth": {
+            "left": { "x": 35, "y": 18 },
+            "right": { "x": 65, "y": 18 },
+            "width": 4,
+            "height": 2,
+            "color": "#3b1716",
+            "openColor": "#12090a",
+            "intervalMs": 150
+          }
+        },
+        "watch": {
+          "pose": "watch",
+          "animation": "breathe"
+        },
+        "weigh": {
+          "pose": "weigh",
+          "animation": "interact"
+        },
+        "reveal": {
+          "pose": "reveal",
+          "animation": "interact"
+        },
+        "cut": {
+          "pose": "cut",
+          "animation": "action"
+        },
+        "threaten": {
+          "pose": "threaten",
+          "animation": "shake"
+        },
+        "strike": {
+          "pose": "strike",
+          "animation": "action"
+        },
+        "fall": {
+          "pose": "fall",
+          "animation": "fall"
+        },
+        "injured": {
+          "pose": "injured",
+          "animation": "none"
+        },
+        "leave": {
+          "pose": "leave",
+          "animation": "walk"
+        }
+      }
+    },
+    "HAO_GE": {
+      "displayName": "郝哥",
+      "initialPosition": {
+        "column": 19,
+        "row": 15
+      },
+      "defaultExpression": "idle",
+      "expressions": {
+        "idle": {
+          "pose": "idle",
+          "animation": "breathe",
+          "sprites": {
+            "left": "/assets/generated/sprites/vendor_left.png",
+            "right": "/assets/generated/sprites/vendor_right.png"
+          }
+        },
+        "talk": {
+          "pose": "talk",
+          "animation": "talk",
+          "sprites": {
+            "left": "/assets/generated/sprites/vendor_left.png",
+            "right": "/assets/generated/sprites/vendor_right.png"
+          },
+          "mouth": {
+            "left": { "x": 45, "y": 20 },
+            "right": { "x": 55, "y": 20 },
+            "width": 4,
+            "height": 2,
+            "color": "#421c18",
+            "openColor": "#16090a",
+            "intervalMs": 170
+          }
+        },
+        "watch": {
+          "pose": "watch",
+          "animation": "breathe",
+          "sprites": {
+            "left": "/assets/generated/sprites/vendor_left.png",
+            "right": "/assets/generated/sprites/vendor_right.png"
+          }
+        },
+        "weigh": {
+          "pose": "weigh",
+          "animation": "interact",
+          "sprites": {
+            "left": "/assets/generated/sprites/vendor_left.png",
+            "right": "/assets/generated/sprites/vendor_right.png"
+          }
+        },
+        "threaten": {
+          "pose": "threaten",
+          "animation": "shake",
+          "sprites": "/assets/generated/sprites/hao_angry.png"
+        },
+        "strike": {
+          "pose": "strike",
+          "animation": "action",
+          "sprites": "/assets/generated/sprites/hao_angry.png"
+        },
+        "fall": {
+          "pose": "fall",
+          "animation": "fall8"
+        },
+        "injured": {
+          "pose": "injured",
+          "animation": "none",
+          "sprites": "/assets/generated/sprites/hao_injured.png"
+        },
+        "leave": {
+          "pose": "leave",
+          "animation": "walk"
+        }
+      }
+    },
+    "NEIGHBOR": {
+      "displayName": "隔壁摊主",
+      "initialPosition": {
+        "column": 24,
+        "row": 14
+      },
+      "defaultExpression": "idle",
+      "expressions": {
+        "idle": {
+          "pose": "idle",
+          "animation": "breathe",
+          "sprites": {
+            "left": "/assets/generated/sprites/neighbor_left.png",
+            "right": "/assets/generated/sprites/neighbor_right.png"
+          }
+        },
+        "talk": {
+          "pose": "talk",
+          "animation": "talk",
+          "sprites": {
+            "left": "/assets/generated/sprites/neighbor_left.png",
+            "right": "/assets/generated/sprites/neighbor_right.png"
+          },
+          "mouth": {
+            "left": { "x": 34, "y": 23 },
+            "right": { "x": 66, "y": 23 },
+            "width": 4,
+            "height": 2,
+            "color": "#401a18",
+            "openColor": "#14090a",
+            "intervalMs": 165
+          }
+        },
+        "watch": {
+          "pose": "watch",
+          "animation": "breathe",
+          "sprites": {
+            "left": "/assets/generated/sprites/neighbor_left.png",
+            "right": "/assets/generated/sprites/neighbor_right.png"
+          }
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": "arrival",
+      "chapter": "一 · 街口",
+      "speaker": "HUAQIANG",
+      "narration": "摩托声在街口停下。华强抬眼望去，瓜摊、台秤和守在摊后的郝哥都在前方。",
+      "stageDirection": "请选择华强接下来走向哪里。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 4,
+            "row": 22
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "idle"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "径直走到瓜摊",
+          "description": "沿经典路线来到郝哥右侧。",
+          "next": "ask_price",
+          "canonical": true,
+          "tensionDelta": 2
+        },
+        {
+          "id": "B",
+          "label": "先看路边价牌",
+          "description": "从标价和摊位陈设入手。",
+          "next": "inspect_sign",
+          "canonical": false,
+          "tensionDelta": 0
+        },
+        {
+          "id": "C",
+          "label": "先去停好摩托",
+          "description": "绕到街边空地再观察。",
+          "next": "park_bike",
+          "canonical": false,
+          "tensionDelta": -1
+        }
+      ]
+    },
+    {
+      "id": "inspect_sign",
+      "chapter": "支线 · 价牌",
+      "speaker": "HUAQIANG",
+      "narration": "华强在价牌前停了片刻。墨迹像是刚补过，摊位上却找不到净重和称重规则。",
+      "stageDirection": "郝哥已经注意到这边。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 11,
+            "row": 13
+          },
+          "face": {
+            "position": {
+              "column": 12,
+              "row": 13
+            }
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "拿价牌去问郝哥",
+          "description": "带着疑点走到秤前。",
+          "next": "ask_price",
+          "canonical": false,
+          "tensionDelta": 4
+        },
+        {
+          "id": "B",
+          "label": "绕到秤盘侧面",
+          "description": "先寻找称重装置的破绽。",
+          "next": "early_scale_check",
+          "canonical": false,
+          "tensionDelta": 6
+        },
+        {
+          "id": "C",
+          "label": "招呼隔壁摊主",
+          "description": "让旁人作证后再开口。",
+          "next": "ask_neighbor",
+          "canonical": false,
+          "tensionDelta": 1
+        }
+      ]
+    },
+    {
+      "id": "park_bike",
+      "chapter": "支线 · 街边",
+      "speaker": "NEIGHBOR",
+      "narration": "华强把摩托停到街边。隔壁摊主朝瓜摊瞥了一眼，随即低头整理自己的货物。",
+      "stageDirection": "这条街上的人似乎都认识郝哥。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 26,
+            "row": 8
+          },
+          "face": {
+            "position": {
+              "column": 25,
+              "row": 7
+            }
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "NEIGHBOR": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "不多问，走向瓜摊",
+          "description": "把注意力放回买瓜。",
+          "next": "ask_price",
+          "canonical": false,
+          "tensionDelta": 1
+        },
+        {
+          "id": "B",
+          "label": "问问这摊的口碑",
+          "description": "先了解以前有没有短秤。",
+          "next": "ask_neighbor",
+          "canonical": false,
+          "tensionDelta": 0
+        },
+        {
+          "id": "C",
+          "label": "换到街口另一侧",
+          "description": "保持距离继续观察。",
+          "next": "watch_from_afar",
+          "canonical": false,
+          "tensionDelta": -2
+        }
+      ]
+    },
+    {
+      "id": "ask_neighbor",
+      "chapter": "支线 · 旁证",
+      "speaker": "NEIGHBOR",
+      "narration": "隔壁摊主压低声音提醒一句，目光始终避开郝哥，话说完便转身忙活。",
+      "dialogue": "买瓜得当面称清、当面切开。别的我不多说。",
+      "stageDirection": "这句提醒可以改变接下来的处理方式。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 23,
+            "row": 14
+          },
+          "face": {
+            "character": "NEIGHBOR"
+          }
+        },
+        "characters": {
+          "NEIGHBOR": {
+            "expression": "talk"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "照常问价",
+          "description": "不暴露已经得到的提醒。",
+          "next": "ask_price",
+          "canonical": false,
+          "tensionDelta": 2
+        },
+        {
+          "id": "B",
+          "label": "直接要求复秤",
+          "description": "跳过试探，先核对重量。",
+          "next": "demand_reweigh",
+          "canonical": false,
+          "tensionDelta": 8
+        },
+        {
+          "id": "C",
+          "label": "请他一同过去",
+          "description": "让旁证在场，压低冲突空间。",
+          "next": "witnessed_purchase",
+          "canonical": false,
+          "tensionDelta": -3
+        }
+      ]
+    },
+    {
+      "id": "watch_from_afar",
+      "chapter": "支线 · 观望",
+      "speaker": "HUAQIANG",
+      "narration": "华强隔着摊位观察。郝哥弯腰整理秤盘时，手在秤底停了一瞬，很快又收了回去。",
+      "stageDirection": "华强掌握了一个可疑细节。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 9,
+            "row": 10
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "weigh"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "靠近后装作没看见",
+          "description": "让郝哥先完成一次称重。",
+          "next": "ask_price",
+          "canonical": false,
+          "tensionDelta": 3
+        },
+        {
+          "id": "B",
+          "label": "当场指出小动作",
+          "description": "提前把矛盾放到秤上。",
+          "next": "early_scale_check",
+          "canonical": false,
+          "tensionDelta": 10
+        },
+        {
+          "id": "C",
+          "label": "拍下证据后离开",
+          "description": "避免正面冲突，保留证据。",
+          "next": "evidence_exit",
+          "canonical": false,
+          "tensionDelta": -8
+        }
+      ]
+    },
+    {
+      "id": "ask_price",
+      "chapter": "二 · 问价",
+      "speaker": "HAO_GE",
+      "narration": "华强来到摊前。郝哥抬手比出价格，神情像是在谈一笔再普通不过的生意。",
+      "dialogue": "两块钱一斤。反季瓜，进价就高。",
+      "stageDirection": "价格谈话开始，郝哥仍显得从容。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "sequence": {
+          "beats": [
+            {
+              "id": "hao_quotes_price",
+              "label": "郝哥抬手报价",
+              "durationMs": 420,
+              "bubble": false,
+              "characters": {
+                "HAO_GE": {
+                  "expression": "talk",
+                  "facing": "right",
+                  "motion": "present"
+                }
+              }
+            },
+            {
+              "id": "price_line",
+              "label": "郝哥等华强回应",
+              "durationMs": 140,
+              "bubble": true,
+              "characters": {
+                "HAO_GE": { "motion": "hold" }
+              }
+            }
+          ]
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "talk"
+          },
+          "HAO_GE": {
+            "expression": "talk"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "追问为何这么贵",
+          "description": "用那句熟悉的反问压住话头。",
+          "next": "pick_melon",
+          "canonical": true,
+          "tensionDelta": 7
+        },
+        {
+          "id": "B",
+          "label": "按价买一个",
+          "description": "不争价格，只要求现场挑瓜。",
+          "next": "quick_purchase",
+          "canonical": false,
+          "tensionDelta": -2
+        },
+        {
+          "id": "C",
+          "label": "提出按市场价算",
+          "description": "开始一轮讨价还价。",
+          "next": "bargain",
+          "canonical": false,
+          "tensionDelta": 1
+        }
+      ]
+    },
+    {
+      "id": "bargain",
+      "chapter": "支线 · 还价",
+      "speaker": "HAO_GE",
+      "narration": "郝哥没有松口。他把一只大瓜往秤边推了半尺，试图把话题从单价带到分量。",
+      "dialogue": "价就这个价。挑个大的，算下来更划算。",
+      "stageDirection": "他试图把讨论从单价引到总价。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "talk"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "让他挑一个",
+          "description": "继续观察他会选哪只瓜。",
+          "next": "pick_melon",
+          "canonical": false,
+          "tensionDelta": 2
+        },
+        {
+          "id": "B",
+          "label": "自己从瓜堆挑",
+          "description": "打乱郝哥预先准备的顺序。",
+          "next": "self_pick",
+          "canonical": false,
+          "tensionDelta": 4
+        },
+        {
+          "id": "C",
+          "label": "只买半个",
+          "description": "要求当场切开后再称。",
+          "next": "cut_before_weigh",
+          "canonical": false,
+          "tensionDelta": 5
+        }
+      ]
+    },
+    {
+      "id": "quick_purchase",
+      "chapter": "支线 · 爽快买",
+      "speaker": "HAO_GE",
+      "narration": "见华强不再还价，郝哥顺手从近处抽出一只瓜，另一只手已经搭上秤盘。",
+      "dialogue": "就这个，个头正，直接上秤。",
+      "stageDirection": "是否先确认成熟度？",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "weigh"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "先问瓜熟不熟",
+          "description": "把承诺说清再称。",
+          "next": "guarantee",
+          "canonical": false,
+          "tensionDelta": 3
+        },
+        {
+          "id": "B",
+          "label": "直接让他上秤",
+          "description": "先拿到称重结果。",
+          "next": "weigh_melon",
+          "canonical": false,
+          "tensionDelta": 1
+        },
+        {
+          "id": "C",
+          "label": "换一个小瓜",
+          "description": "避开郝哥递来的大瓜。",
+          "next": "self_pick",
+          "canonical": false,
+          "tensionDelta": 0
+        }
+      ]
+    },
+    {
+      "id": "pick_melon",
+      "chapter": "三 · 挑瓜",
+      "speaker": "HAO_GE",
+      "narration": "郝哥走到瓜堆旁，俯身挑出一只西瓜。他双手托稳瓜身，连续拍了两下瓜皮，再抱回华强面前。",
+      "dialogue": "这个怎么样？",
+      "stageDirection": "瓜被放到两人之间。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "sequence": {
+          "beats": [
+            {
+              "id": "approach_pile",
+              "label": "郝哥走向瓜堆",
+              "durationMs": 720,
+              "bubble": false,
+              "characters": {
+                "HAO_GE": {
+                  "position": { "column": 18, "row": 15 },
+                  "facing": "left",
+                  "motion": "walk",
+                  "expression": "watch"
+                }
+              }
+            },
+            {
+              "id": "reach_into_pile",
+              "label": "俯身挑瓜",
+              "durationMs": 520,
+              "characters": {
+                "HAO_GE": {
+                  "motion": "reach",
+                  "spriteSheet": {
+                    "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+                    "columns": 4,
+                    "rows": 1,
+                    "frame": 0
+                  }
+                }
+              }
+            },
+            {
+              "id": "lift_melon",
+              "label": "从瓜堆拿起一只",
+              "durationMs": 480,
+              "characters": {
+                "HAO_GE": {
+                  "motion": "lift",
+                  "spriteSheet": {
+                    "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+                    "columns": 4,
+                    "rows": 1,
+                    "frame": 1
+                  }
+                }
+              },
+              "props": {
+                "melon_pile": { "state": "one-missing" }
+              }
+            },
+            {
+              "id": "hold_melon",
+              "label": "双手托稳西瓜",
+              "durationMs": 360,
+              "characters": {
+                "HAO_GE": {
+                  "motion": "hold",
+                  "spriteSheet": {
+                    "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+                    "columns": 4,
+                    "rows": 1,
+                    "frame": 2
+                  }
+                }
+              }
+            },
+            {
+              "id": "pat_melon_first",
+              "label": "拍一拍瓜皮",
+              "durationMs": 220,
+              "characters": {
+                "HAO_GE": {
+                  "motion": "pat",
+                  "spriteSheet": {
+                    "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+                    "columns": 4,
+                    "rows": 1,
+                    "frame": 3
+                  }
+                }
+              }
+            },
+            {
+              "id": "pat_melon_second",
+              "label": "咚、咚",
+              "durationMs": 220,
+              "characters": {
+                "HAO_GE": {
+                  "motion": "pat",
+                  "spriteSheet": {
+                    "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+                    "columns": 4,
+                    "rows": 1,
+                    "frame": 2
+                  }
+                }
+              }
+            },
+            {
+              "id": "return_with_melon",
+              "label": "抱着瓜走回华强面前",
+              "durationMs": 680,
+              "characters": {
+                "HAO_GE": {
+                  "position": { "column": 19, "row": 15 },
+                  "facing": "right",
+                  "motion": "walk",
+                  "spriteSheet": {
+                    "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+                    "columns": 4,
+                    "rows": 1,
+                    "frame": 2
+                  }
+                }
+              }
+            },
+            {
+              "id": "present_melon",
+              "label": "把瓜递到两人之间",
+              "durationMs": 420,
+              "characters": {
+                "HAO_GE": {
+                  "motion": "present",
+                  "expression": "talk",
+                  "spriteSheet": {
+                    "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+                    "columns": 4,
+                    "rows": 1,
+                    "frame": 3
+                  }
+                }
+              }
+            },
+            {
+              "id": "ask_how_about_this",
+              "label": "郝哥等待回答",
+              "durationMs": 180,
+              "bubble": true,
+              "characters": {
+                "HAO_GE": {
+                  "motion": "hold"
+                }
+              }
+            }
+          ]
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "talk"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "问他能否保熟",
+          "description": "经典路线：回到郝哥面前让他作出承诺。",
+          "next": "guarantee",
+          "canonical": true,
+          "tensionDelta": 5
+        },
+        {
+          "id": "B",
+          "label": "自己敲瓜听声",
+          "description": "不接受口头保证，自己判断。",
+          "next": "self_check_melon",
+          "canonical": false,
+          "tensionDelta": 1
+        },
+        {
+          "id": "C",
+          "label": "让隔壁摊主看看",
+          "description": "引入第三方意见。",
+          "next": "witnessed_purchase",
+          "canonical": false,
+          "tensionDelta": -1
+        }
+      ]
+    },
+    {
+      "id": "self_pick",
+      "chapter": "支线 · 自选",
+      "speaker": "HUAQIANG",
+      "narration": "华强绕开递到面前的大瓜，从后排重新挑了一只。郝哥看着他的手，脸上的笑意淡了下去。",
+      "dialogue": "这个我自己挑。",
+      "stageDirection": "原先被递出的瓜留在秤边。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 18,
+            "row": 18
+          },
+          "face": {
+            "position": {
+              "column": 17,
+              "row": 15
+            }
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "仍要求保熟",
+          "description": "承诺必须针对新选的瓜。",
+          "next": "guarantee",
+          "canonical": false,
+          "tensionDelta": 4
+        },
+        {
+          "id": "B",
+          "label": "两只瓜一起复秤",
+          "description": "比较重量与秤的稳定性。",
+          "next": "demand_reweigh",
+          "canonical": false,
+          "tensionDelta": 7
+        },
+        {
+          "id": "C",
+          "label": "切开再决定",
+          "description": "把结果提前公开。",
+          "next": "cut_before_weigh",
+          "canonical": false,
+          "tensionDelta": 5
+        }
+      ]
+    },
+    {
+      "id": "self_check_melon",
+      "chapter": "支线 · 验瓜",
+      "speaker": "HUAQIANG",
+      "narration": "华强屈指敲了敲瓜皮，又翻看瓜蒂。回声沉闷，瓜蒂也不够干燥。",
+      "dialogue": "这声不对，瓜蒂也不够干。",
+      "stageDirection": "现在可以继续试探，也可以中止交易。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 18,
+            "row": 18
+          },
+          "face": {
+            "position": {
+              "column": 17,
+              "row": 15
+            }
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "让郝哥明确保证",
+          "description": "把疑问转成他的承诺。",
+          "next": "guarantee",
+          "canonical": false,
+          "tensionDelta": 5
+        },
+        {
+          "id": "B",
+          "label": "要求当场切开",
+          "description": "先验瓜再付款。",
+          "next": "cut_before_weigh",
+          "canonical": false,
+          "tensionDelta": 6
+        },
+        {
+          "id": "C",
+          "label": "放下瓜离开",
+          "description": "不为一只可疑的瓜冒险。",
+          "next": "peaceful_exit",
+          "canonical": false,
+          "tensionDelta": -12
+        }
+      ]
+    },
+    {
+      "id": "guarantee",
+      "chapter": "四 · 保熟",
+      "speaker": "HAO_GE",
+      "narration": "华强没有接瓜，反而追问成熟度。郝哥拍了拍胸口，把语气抬高了一截。",
+      "dialogue": "我开水果摊的，能卖给你生瓜蛋子？",
+      "stageDirection": "华强继续追问：如果不熟，该怎么办？",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "talk"
+          },
+          "HUAQIANG": {
+            "expression": "talk"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "让他亲口担责",
+          "description": "郝哥答应：若是生瓜，就由他负责。",
+          "next": "weigh_melon",
+          "canonical": true,
+          "tensionDelta": 8
+        },
+        {
+          "id": "B",
+          "label": "写在价牌背面",
+          "description": "把口头承诺变成可见凭据。",
+          "next": "written_guarantee",
+          "canonical": false,
+          "tensionDelta": 2
+        },
+        {
+          "id": "C",
+          "label": "让旁人作证",
+          "description": "由隔壁摊主见证承诺。",
+          "next": "witnessed_purchase",
+          "canonical": false,
+          "tensionDelta": -1
+        }
+      ]
+    },
+    {
+      "id": "written_guarantee",
+      "chapter": "支线 · 字据",
+      "speaker": "HAO_GE",
+      "narration": "纸笔被推到摊面上，郝哥却把手收了回去。他避开华强的目光，不肯留下书面保证。",
+      "dialogue": "一个瓜而已，写什么保证，没必要弄这么复杂。",
+      "stageDirection": "他的回避让疑点进一步加深。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "talk"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "不用写，继续称",
+          "description": "让交易继续，把注意力转向秤。",
+          "next": "weigh_melon",
+          "canonical": false,
+          "tensionDelta": 5
+        },
+        {
+          "id": "B",
+          "label": "坚持先写清楚",
+          "description": "双方围绕承诺僵持。",
+          "next": "deal_stalls",
+          "canonical": false,
+          "tensionDelta": 4
+        },
+        {
+          "id": "C",
+          "label": "放弃这笔交易",
+          "description": "带着疑点离开摊位。",
+          "next": "peaceful_exit",
+          "canonical": false,
+          "tensionDelta": -10
+        }
+      ]
+    },
+    {
+      "id": "witnessed_purchase",
+      "chapter": "支线 · 见证",
+      "speaker": "NEIGHBOR",
+      "narration": "隔壁摊主走到秤边，几名路人也停下脚步。郝哥的声音低了些，手终于离开秤盘。",
+      "dialogue": "先把秤归零，当着大家的面称。",
+      "stageDirection": "公开流程降低了冲突，但仍需决定是否继续买。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 22,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "characters": {
+          "NEIGHBOR": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "weigh"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "按流程称瓜",
+          "description": "记录净重后再付款。",
+          "next": "fair_weigh",
+          "canonical": false,
+          "tensionDelta": -4
+        },
+        {
+          "id": "B",
+          "label": "要求同时切开",
+          "description": "重量与成熟度一起核验。",
+          "next": "cut_before_weigh",
+          "canonical": false,
+          "tensionDelta": 1
+        },
+        {
+          "id": "C",
+          "label": "把瓜让给旁人",
+          "description": "退出交易，观察郝哥反应。",
+          "next": "deal_stalls",
+          "canonical": false,
+          "tensionDelta": -3
+        }
+      ]
+    },
+    {
+      "id": "weigh_melon",
+      "chapter": "五 · 称重",
+      "speaker": "HAO_GE",
+      "narration": "西瓜落上秤盘，秤杆迅速压下。郝哥看了一眼刻度，伸手按住仍在晃动的秤杆。",
+      "dialogue": "十五斤，三十块。",
+      "stageDirection": "瓜的体量与读数并不相称。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 14
+          },
+          "face": {
+            "position": {
+              "column": 18,
+              "row": 14
+            }
+          }
+        },
+        "sequence": {
+          "beats": [
+            {
+              "id": "carry_melon_to_scale",
+              "label": "郝哥抱着瓜走到秤边",
+              "durationMs": 680,
+              "bubble": false,
+              "characters": {
+                "HAO_GE": {
+                  "position": { "column": 18, "row": 15 },
+                  "facing": "left",
+                  "motion": "walk",
+                  "spriteSheet": {
+                    "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+                    "columns": 4,
+                    "rows": 1,
+                    "frame": 2
+                  }
+                }
+              },
+              "props": {
+                "single_melon": {
+                  "state": "hidden"
+                }
+              }
+            },
+            {
+              "id": "lower_melon_to_scale",
+              "label": "俯身把瓜放到秤盘",
+              "durationMs": 440,
+              "characters": {
+                "HAO_GE": {
+                  "motion": "reach",
+                  "spriteSheet": {
+                    "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+                    "columns": 4,
+                    "rows": 1,
+                    "frame": 3
+                  }
+                }
+              }
+            },
+            {
+              "id": "release_melon_on_scale",
+              "label": "松手，西瓜落稳",
+              "durationMs": 240,
+              "characters": {
+                "HAO_GE": {
+                  "expression": "weigh",
+                  "motion": "hold",
+                  "spriteSheet": null
+                }
+              },
+              "props": {
+                "single_melon": {
+                  "state": "on-scale",
+                  "position": { "column": 18, "row": 14 }
+                }
+              }
+            },
+            {
+              "id": "scale_settles",
+              "label": "秤杆晃动后落下",
+              "durationMs": 520,
+              "characters": {
+                "HAO_GE": { "motion": "hold" }
+              },
+              "props": {
+                "hao_scale_prop": { "state": "weighing" }
+              }
+            },
+            {
+              "id": "announce_weight",
+              "label": "郝哥按住秤杆报数",
+              "durationMs": 160,
+              "bubble": true,
+              "characters": {
+                "HAO_GE": {
+                  "expression": "talk",
+                  "motion": "present"
+                }
+              }
+            }
+          ]
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "weigh"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "指出秤有问题",
+          "description": "经典路线：站到秤旁翻看秤盘底部。",
+          "next": "reveal_magnet",
+          "canonical": true,
+          "tensionDelta": 12
+        },
+        {
+          "id": "B",
+          "label": "拿标准砝码复验",
+          "description": "用公开校验替代正面指责。",
+          "next": "demand_reweigh",
+          "canonical": false,
+          "tensionDelta": 2
+        },
+        {
+          "id": "C",
+          "label": "先付钱再留证",
+          "description": "保留票据，暂不揭穿。",
+          "next": "evidence_exit",
+          "canonical": false,
+          "tensionDelta": -2
+        }
+      ]
+    },
+    {
+      "id": "fair_weigh",
+      "chapter": "支线 · 公平称",
+      "speaker": "NEIGHBOR",
+      "narration": "秤盘重新归零后，读数明显少了一截。旁人把前后数字都记了下来，郝哥站在一旁没有再碰秤。",
+      "dialogue": "校零以后可没那么重。",
+      "stageDirection": "事情可以和平收尾，也可以继续查秤。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 14
+          },
+          "face": {
+            "position": {
+              "column": 18,
+              "row": 14
+            }
+          }
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "watch"
+          },
+          "NEIGHBOR": {
+            "expression": "watch"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "按真实重量买下",
+          "description": "完成交易，避免升级。",
+          "next": "peaceful_exit",
+          "canonical": false,
+          "tensionDelta": -8
+        },
+        {
+          "id": "B",
+          "label": "继续检查秤盘",
+          "description": "追查错误读数的来源。",
+          "next": "reveal_magnet",
+          "canonical": false,
+          "tensionDelta": 5
+        },
+        {
+          "id": "C",
+          "label": "要求退还差价",
+          "description": "让郝哥当面纠正账目。",
+          "next": "refund_exit",
+          "canonical": false,
+          "tensionDelta": 0
+        }
+      ]
+    },
+    {
+      "id": "demand_reweigh",
+      "chapter": "支线 · 复秤",
+      "speaker": "HAO_GE",
+      "narration": "同一只瓜再次上秤，秤杆却连续停在不同位置。郝哥伸手挡住刻度，开始催促交易。",
+      "dialogue": "秤都有误差。你到底买不买？",
+      "stageDirection": "秤的问题已经无法用误差解释。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 14
+          },
+          "face": {
+            "position": {
+              "column": 18,
+              "row": 14
+            }
+          }
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "weigh"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "翻开秤盘检查",
+          "description": "寻找影响读数的装置。",
+          "next": "reveal_magnet",
+          "canonical": false,
+          "tensionDelta": 8
+        },
+        {
+          "id": "B",
+          "label": "请旁人现场校秤",
+          "description": "把争议交给第三方。",
+          "next": "fair_weigh",
+          "canonical": false,
+          "tensionDelta": -2
+        },
+        {
+          "id": "C",
+          "label": "记录两次读数离开",
+          "description": "保留证据，不在街面冲突。",
+          "next": "evidence_exit",
+          "canonical": false,
+          "tensionDelta": -7
+        }
+      ]
+    },
+    {
+      "id": "early_scale_check",
+      "chapter": "支线 · 提前查秤",
+      "speaker": "HAO_GE",
+      "narration": "华强刚朝秤底看去，郝哥便横跨一步挡住台秤，摊前的气氛瞬间绷紧。",
+      "dialogue": "你什么意思？跑这儿找事来了？",
+      "stageDirection": "提前暴露意图让现场立刻紧张起来。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 14
+          },
+          "face": {
+            "position": {
+              "column": 18,
+              "row": 14
+            }
+          }
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "threaten"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "请他当面校秤",
+          "description": "用正常交易流程回应。",
+          "next": "demand_reweigh",
+          "canonical": false,
+          "tensionDelta": 3
+        },
+        {
+          "id": "B",
+          "label": "直接掀开秤盘",
+          "description": "强行确认底部是否藏东西。",
+          "next": "reveal_magnet",
+          "canonical": false,
+          "tensionDelta": 14
+        },
+        {
+          "id": "C",
+          "label": "退开并叫旁人",
+          "description": "让冲突回到公开监督。",
+          "next": "witnessed_purchase",
+          "canonical": false,
+          "tensionDelta": -4
+        }
+      ]
+    },
+    {
+      "id": "reveal_magnet",
+      "chapter": "六 · 吸铁石",
+      "speaker": "HUAQIANG",
+      "narration": "华强掀开秤盘。藏在底部的吸铁石暴露出来，围观者的目光同时落向郝哥。",
+      "dialogue": "这块吸铁石，你怎么解释？",
+      "stageDirection": "证据出现。郝哥的态度从嘴硬转为恼怒。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 14
+          },
+          "face": {
+            "position": {
+              "column": 18,
+              "row": 14
+            }
+          }
+        },
+        "sequence": {
+          "beats": [
+            {
+              "id": "lift_scale_pan",
+              "label": "华强掀开秤盘",
+              "durationMs": 540,
+              "bubble": false,
+              "characters": {
+                "HUAQIANG": {
+                  "expression": "reveal",
+                  "motion": "lift"
+                }
+              },
+              "props": {
+                "hao_scale_prop": { "state": "magnet-revealed" }
+              }
+            },
+            {
+              "id": "point_to_magnet",
+              "label": "吸铁石暴露在众人面前",
+              "durationMs": 360,
+              "characters": {
+                "HUAQIANG": { "motion": "present" },
+                "HAO_GE": { "expression": "threaten" }
+              }
+            },
+            {
+              "id": "question_magnet",
+              "label": "华强要求解释",
+              "durationMs": 160,
+              "bubble": true,
+              "characters": {
+                "HUAQIANG": {
+                  "expression": "talk",
+                  "motion": "hold"
+                }
+              }
+            }
+          ]
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "reveal"
+          },
+          "HAO_GE": {
+            "expression": "threaten"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "重提生瓜承诺",
+          "description": "经典路线：走到切瓜桌，把秤和瓜一起说清。",
+          "next": "cut_melon",
+          "canonical": true,
+          "tensionDelta": 10
+        },
+        {
+          "id": "B",
+          "label": "收起吸铁石作证据",
+          "description": "不当场切瓜，带证据离开。",
+          "next": "evidence_exit",
+          "canonical": false,
+          "tensionDelta": -3
+        },
+        {
+          "id": "C",
+          "label": "要求退钱并道歉",
+          "description": "把冲突限制在赔偿上。",
+          "next": "refund_exit",
+          "canonical": false,
+          "tensionDelta": 1
+        }
+      ]
+    },
+    {
+      "id": "cut_before_weigh",
+      "chapter": "支线 · 先验瓜",
+      "speaker": "HUAQIANG",
+      "narration": "刀锋落下，西瓜裂成两半。瓜瓤颜色发白，籽粒也没有完全成熟。",
+      "dialogue": "瓤都发白，这瓜不熟。",
+      "stageDirection": "事实已经出现，但秤的问题还没有被查明。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 19,
+            "row": 18
+          },
+          "face": {
+            "position": {
+              "column": 18,
+              "row": 16
+            }
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "cut"
+          },
+          "HAO_GE": {
+            "expression": "threaten"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "让郝哥兑现承诺",
+          "description": "围绕生瓜继续追责。",
+          "next": "vendor_confronts",
+          "canonical": false,
+          "tensionDelta": 10
+        },
+        {
+          "id": "B",
+          "label": "把瓜放下只付损耗",
+          "description": "提出有限赔偿后离开。",
+          "next": "refund_exit",
+          "canonical": false,
+          "tensionDelta": -2
+        },
+        {
+          "id": "C",
+          "label": "再查秤是否做手脚",
+          "description": "把另一项疑点也公开。",
+          "next": "reveal_magnet",
+          "canonical": false,
+          "tensionDelta": 8
+        }
+      ]
+    },
+    {
+      "id": "cut_melon",
+      "chapter": "七 · 开瓜",
+      "speaker": "HUAQIANG",
+      "narration": "华强拿起摊刀，稳住西瓜后干脆劈下。裂开的瓜瓤发白，结果摆在所有人眼前。",
+      "dialogue": "这就是你说的保熟？",
+      "stageDirection": "郝哥发现瓜被劈开，伸手去夺刀。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 19,
+            "row": 18
+          },
+          "face": {
+            "position": {
+              "column": 18,
+              "row": 16
+            }
+          }
+        },
+        "sequence": {
+          "beats": [
+            {
+              "id": "steady_melon",
+              "label": "华强按稳西瓜",
+              "durationMs": 360,
+              "bubble": false,
+              "characters": {
+                "HUAQIANG": {
+                  "expression": "cut",
+                  "motion": "hold"
+                }
+              },
+              "props": {
+                "single_melon": {
+                  "state": "on-cutting-table",
+                  "position": { "column": 17, "row": 16 }
+                }
+              }
+            },
+            {
+              "id": "knife_falls",
+              "label": "摊刀劈开西瓜",
+              "durationMs": 520,
+              "characters": {
+                "HUAQIANG": {
+                  "expression": "cut",
+                  "motion": "lift"
+                }
+              },
+              "props": {
+                "single_melon": {
+                  "state": "cut-open",
+                  "position": { "column": 17, "row": 16 }
+                }
+              }
+            },
+            {
+              "id": "show_pale_flesh",
+              "label": "发白瓜瓤露出来",
+              "durationMs": 320,
+              "characters": {
+                "HUAQIANG": { "motion": "present" },
+                "HAO_GE": { "expression": "threaten" }
+              }
+            },
+            {
+              "id": "question_guarantee",
+              "label": "华强质问郝哥",
+              "durationMs": 160,
+              "bubble": true,
+              "characters": {
+                "HUAQIANG": {
+                  "expression": "talk",
+                  "motion": "hold"
+                }
+              }
+            }
+          ]
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "cut"
+          },
+          "HAO_GE": {
+            "expression": "threaten"
+          },
+          "NEIGHBOR": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "站定面对郝哥",
+          "description": "经典路线：回到摊前，冲突进入最后一刻。",
+          "next": "vendor_confronts",
+          "canonical": true,
+          "tensionDelta": 14
+        },
+        {
+          "id": "B",
+          "label": "放下刀退后一步",
+          "description": "拉开距离，让旁人处理。",
+          "next": "deescalate",
+          "canonical": false,
+          "tensionDelta": -6
+        },
+        {
+          "id": "C",
+          "label": "举起生瓜给众人看",
+          "description": "用围观压力阻止郝哥上前。",
+          "next": "public_shame",
+          "canonical": false,
+          "tensionDelta": 2
+        }
+      ]
+    },
+    {
+      "id": "vendor_confronts",
+      "chapter": "八 · 冲突",
+      "speaker": "HAO_GE",
+      "narration": "郝哥猛地抓起摊刀向前逼近。华强侧身让开刀锋，两人之间只剩一步距离。",
+      "dialogue": "你故意找茬是不是？",
+      "stageDirection": "这是经典路线的决定性节点。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "characters": {
+          "HAO_GE": {
+            "expression": "strike"
+          },
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "NEIGHBOR": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "格挡并反击",
+          "description": "经典演出：华强近身夺势，郝哥受伤。",
+          "next": "hao_fall_1",
+          "canonical": true,
+          "tensionDelta": 18
+        },
+        {
+          "id": "B",
+          "label": "只夺下刀",
+          "description": "控制武器，不继续攻击。",
+          "next": "deescalate",
+          "canonical": false,
+          "tensionDelta": -4
+        },
+        {
+          "id": "C",
+          "label": "转身避开冲突",
+          "description": "借摊位拉开距离并离场。",
+          "next": "escape_exit",
+          "canonical": false,
+          "tensionDelta": -7
+        }
+      ]
+    },
+    {
+      "id": "hao_fall_1",
+      "chapter": "演出 · 倒地",
+      "speaker": "NEIGHBOR",
+      "narration": "郝哥脚下一乱，接连后退两步，身体失去平衡，朝摊前空地倒去。",
+      "dialogue": "小心！",
+      "stageDirection": "倒地动画播放中。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "strike"
+          },
+          "HAO_GE": {
+            "expression": "fall"
+          },
+          "NEIGHBOR": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [],
+      "autoAdvance": {
+        "next": "hao_injured",
+        "delayMs": 1100
+      }
+    },
+    {
+      "id": "hao_injured",
+      "chapter": "九 · 收场",
+      "speaker": "NEIGHBOR",
+      "narration": "郝哥倒在摊前没有起身。隔壁摊主冲到近处呼救，街口的人迅速围了过来。",
+      "dialogue": "来人！快叫救护车！",
+      "stageDirection": "郝哥保持受伤倒地状态，华强准备离开。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 20,
+            "row": 15
+          },
+          "face": {
+            "character": "HAO_GE"
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "injured"
+          },
+          "NEIGHBOR": {
+            "expression": "talk"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "放下话后离开",
+          "description": "经典路线：指出吸铁石与生瓜承诺，随后离场。",
+          "next": "canon_exit",
+          "canonical": true,
+          "tensionDelta": 0
+        },
+        {
+          "id": "B",
+          "label": "留下等待救护",
+          "description": "偏离原线，现场接受后续处理。",
+          "next": "detour_end",
+          "canonical": false,
+          "tensionDelta": -10
+        },
+        {
+          "id": "C",
+          "label": "让旁人先照看郝哥",
+          "description": "交代现场后从街口离开。",
+          "next": "escape_exit",
+          "canonical": false,
+          "tensionDelta": -5
+        }
+      ]
+    },
+    {
+      "id": "deescalate",
+      "chapter": "支线 · 降温",
+      "speaker": "NEIGHBOR",
+      "narration": "摊刀被放回桌面，隔壁摊主站到两人中间。双方各退一步，冲突停了下来。",
+      "dialogue": "把刀放下，有话好说！",
+      "stageDirection": "现场仍紧张，但已没有人受伤。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 23,
+            "row": 14
+          },
+          "face": {
+            "character": "NEIGHBOR"
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          },
+          "NEIGHBOR": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "要求按真实重量结算",
+          "description": "让交易回到证据和账目。",
+          "next": "fair_weigh",
+          "canonical": false,
+          "tensionDelta": -4
+        },
+        {
+          "id": "B",
+          "label": "拿走证据离开",
+          "description": "把后续交给正式渠道。",
+          "next": "evidence_exit",
+          "canonical": false,
+          "tensionDelta": -6
+        },
+        {
+          "id": "C",
+          "label": "就此作罢",
+          "description": "双方分开，结束这次交易。",
+          "next": "peaceful_exit",
+          "canonical": false,
+          "tensionDelta": -12
+        }
+      ]
+    },
+    {
+      "id": "public_shame",
+      "chapter": "支线 · 公开",
+      "speaker": "NEIGHBOR",
+      "narration": "围观者看清发白的瓜瓤后议论起来。郝哥停在原地，握紧的手慢慢松开。",
+      "dialogue": "大伙儿都看见了，这瓜就是生的。",
+      "stageDirection": "舆论替代了肢体冲突。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 23,
+            "row": 14
+          },
+          "face": {
+            "character": "NEIGHBOR"
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          },
+          "NEIGHBOR": {
+            "expression": "talk"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "再公开吸铁石",
+          "description": "让两项证据同时出现。",
+          "next": "reveal_magnet",
+          "canonical": false,
+          "tensionDelta": 4
+        },
+        {
+          "id": "B",
+          "label": "要求退还全部钱款",
+          "description": "现场完成赔付。",
+          "next": "refund_exit",
+          "canonical": false,
+          "tensionDelta": -4
+        },
+        {
+          "id": "C",
+          "label": "不再争辩直接离开",
+          "description": "让围观者记住发生的事。",
+          "next": "evidence_exit",
+          "canonical": false,
+          "tensionDelta": -6
+        }
+      ]
+    },
+    {
+      "id": "deal_stalls",
+      "chapter": "支线 · 僵局",
+      "speaker": "HUAQIANG",
+      "narration": "瓜还放在原处，秤没有动，钱也没有交出去。双方隔着摊面僵持着。",
+      "dialogue": "不称了，先把话说清楚。",
+      "stageDirection": "可以换一种验证方式，或结束交易。",
+      "stage": {
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [
+        {
+          "id": "A",
+          "label": "提出第三方复秤",
+          "description": "用公开办法打破僵局。",
+          "next": "fair_weigh",
+          "canonical": false,
+          "tensionDelta": -1
+        },
+        {
+          "id": "B",
+          "label": "只检查瓜不检查秤",
+          "description": "把争议缩小到成熟度。",
+          "next": "self_check_melon",
+          "canonical": false,
+          "tensionDelta": -1
+        },
+        {
+          "id": "C",
+          "label": "结束交易离开",
+          "description": "不再继续消耗时间。",
+          "next": "peaceful_exit",
+          "canonical": false,
+          "tensionDelta": -8
+        }
+      ]
+    },
+    {
+      "id": "canon_exit",
+      "chapter": "终章 · 原版世界线",
+      "speaker": "HUAQIANG",
+      "narration": "华强指了指秤底的吸铁石，又看了一眼切开的生瓜，随后转身走向街口。",
+      "dialogue": "记住你说过的话，也记住秤底下这块东西。",
+      "stageDirection": "经典世界线完成。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 4,
+            "row": 22
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "leave"
+          },
+          "HAO_GE": {
+            "expression": "injured"
+          },
+          "NEIGHBOR": {
+            "expression": "talk"
+          }
+        }
+      },
+      "choices": [],
+      "ending": "CANON"
+    },
+    {
+      "id": "evidence_exit",
+      "chapter": "终章 · 留证世界线",
+      "speaker": "HUAQIANG",
+      "narration": "华强收好拍下的画面和称重记录，没有继续争执，转身离开瓜摊。",
+      "dialogue": "证据我留着，后面按规矩处理。",
+      "stageDirection": "无人受伤，证据被保留下来。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 4,
+            "row": 22
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "leave"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [],
+      "ending": "DETOUR"
+    },
+    {
+      "id": "refund_exit",
+      "chapter": "终章 · 退款世界线",
+      "speaker": "HAO_GE",
+      "narration": "郝哥从钱盒里取出原款放回摊面。华强收起钱，交易就此取消。",
+      "dialogue": "钱退你，瓜别拿了。",
+      "stageDirection": "争议以退款收尾。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 4,
+            "row": 22
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "leave"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [],
+      "ending": "PEACEFUL"
+    },
+    {
+      "id": "peaceful_exit",
+      "chapter": "终章 · 离场世界线",
+      "speaker": "HUAQIANG",
+      "narration": "华强把西瓜放回原位，没有付款，径直走回停在街边的摩托旁。",
+      "dialogue": "这瓜我不要了。",
+      "stageDirection": "交易结束，街口恢复平静。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 4,
+            "row": 22
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "leave"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [],
+      "ending": "PEACEFUL"
+    },
+    {
+      "id": "escape_exit",
+      "chapter": "终章 · 避让世界线",
+      "speaker": "NEIGHBOR",
+      "narration": "隔壁摊主和路人将两人分开。华强退向街口，郝哥也被拦在摊位内侧。",
+      "dialogue": "都退一步，别再动手！",
+      "stageDirection": "危险被及时切断。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 4,
+            "row": 22
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "leave"
+          },
+          "HAO_GE": {
+            "expression": "watch"
+          },
+          "NEIGHBOR": {
+            "expression": "watch"
+          }
+        }
+      },
+      "choices": [],
+      "ending": "DETOUR"
+    },
+    {
+      "id": "detour_end",
+      "chapter": "终章 · 留在现场",
+      "speaker": "NEIGHBOR",
+      "narration": "救护和处置人员先后赶到。围观者让出通道，现场人员留下说明事情经过。",
+      "dialogue": "都别走，等人来把经过说清楚。",
+      "stageDirection": "这条世界线没有按原剧情离场。",
+      "stage": {
+        "playerPlacement": {
+          "at": {
+            "column": 23,
+            "row": 14
+          },
+          "face": {
+            "character": "NEIGHBOR"
+          }
+        },
+        "characters": {
+          "HUAQIANG": {
+            "expression": "watch"
+          },
+          "HAO_GE": {
+            "expression": "injured"
+          },
+          "NEIGHBOR": {
+            "expression": "talk"
+          }
+        }
+      },
+      "choices": [],
+      "ending": "DETOUR"
+    }
+  ]
+}

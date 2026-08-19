@@ -1,0 +1,407 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "story.schema.json",
+  "title": "华强买瓜 JSON 剧情",
+  "description": "剧情、角色站位、面向、表情、动作与三选项分支的协作格式。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "formatVersion",
+    "id",
+    "title",
+    "entryNodeId",
+    "canonRoute",
+    "characters",
+    "nodes"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "formatVersion": { "const": 1 },
+    "id": { "$ref": "#/$defs/id" },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "entryNodeId": { "$ref": "#/$defs/id" },
+    "canonRoute": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "characters": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/character" }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/node" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "position": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["column", "row"],
+      "properties": {
+        "column": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 31,
+          "description": "从 0 开始的地图列"
+        },
+        "row": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23,
+          "description": "从 0 开始的地图行"
+        }
+      }
+    },
+    "directionalSprites": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["left", "right"],
+      "properties": {
+        "left": { "type": "string", "minLength": 1 },
+        "right": { "type": "string", "minLength": 1 }
+      }
+    },
+    "expression": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pose", "animation"],
+      "properties": {
+        "pose": {
+          "type": "string",
+          "minLength": 1,
+          "description": "CSS/演出姿态标识，可自由新增"
+        },
+        "animation": {
+          "type": "string",
+          "minLength": 1,
+          "description": "动画标识，例如 breathe、talk、shake、action、fall8"
+        },
+        "sprites": {
+          "description": "单张状态图，或左右朝向两张状态图",
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "$ref": "#/$defs/directionalSprites" }
+          ]
+        },
+        "portrait": {
+          "type": "string",
+          "minLength": 1,
+          "description": "可选的对话头像路径"
+        },
+        "mouth": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "说话时叠加在精灵上的像素嘴部；坐标是相对精灵图片的百分比",
+          "required": [
+            "left",
+            "right",
+            "width",
+            "height",
+            "color",
+            "intervalMs"
+          ],
+          "properties": {
+            "left": { "$ref": "#/$defs/mouthAnchor" },
+            "right": { "$ref": "#/$defs/mouthAnchor" },
+            "width": { "type": "integer", "minimum": 1, "maximum": 12 },
+            "height": { "type": "integer", "minimum": 1, "maximum": 8 },
+            "color": { "type": "string", "minLength": 1 },
+            "openColor": { "type": "string", "minLength": 1 },
+            "intervalMs": {
+              "type": "integer",
+              "minimum": 80,
+              "maximum": 1000
+            }
+          }
+        }
+      }
+    },
+    "mouthAnchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0, "maximum": 100 },
+        "y": { "type": "number", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "character": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "displayName",
+        "initialPosition",
+        "defaultExpression",
+        "expressions"
+      ],
+      "properties": {
+        "displayName": { "type": "string", "minLength": 1 },
+        "initialPosition": { "$ref": "#/$defs/position" },
+        "defaultExpression": { "$ref": "#/$defs/id" },
+        "expressions": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "$ref": "#/$defs/expression" }
+        }
+      }
+    },
+    "face": {
+      "description": "面向某个角色或固定坐标，只能填写其中一种",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["character"],
+          "properties": {
+            "character": { "$ref": "#/$defs/id" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["position"],
+          "properties": {
+            "position": { "$ref": "#/$defs/position" }
+          }
+        }
+      ]
+    },
+    "playerPlacement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["at"],
+      "properties": {
+        "at": { "$ref": "#/$defs/position" },
+        "face": { "$ref": "#/$defs/face" }
+      }
+    },
+    "stageCharacter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["expression"],
+      "properties": {
+        "expression": { "$ref": "#/$defs/id" },
+        "position": {
+          "$ref": "#/$defs/position",
+          "description": "可选：只在当前节点覆盖角色默认站位"
+        }
+      }
+    },
+    "sequenceCharacter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "position": { "$ref": "#/$defs/position" },
+        "expression": { "$ref": "#/$defs/id" },
+        "facing": { "enum": ["left", "right"] },
+        "motion": {
+          "enum": ["idle", "walk", "reach", "lift", "hold", "pat", "present"]
+        },
+        "spriteSheet": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["asset", "columns", "frame"],
+              "properties": {
+                "asset": { "type": "string", "minLength": 1 },
+                "columns": { "type": "integer", "minimum": 1, "maximum": 32 },
+                "rows": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 32,
+                  "default": 1
+                },
+                "frame": { "type": "integer", "minimum": 0 }
+              }
+            },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "sequenceBeat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "durationMs"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": { "type": "string", "minLength": 1 },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 80,
+          "maximum": 10000
+        },
+        "bubble": { "type": "boolean" },
+        "characters": {
+          "type": "object",
+          "default": {},
+          "additionalProperties": { "$ref": "#/$defs/sequenceCharacter" }
+        },
+        "props": {
+          "type": "object",
+          "default": {},
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["state"],
+            "properties": {
+              "state": { "type": "string", "minLength": 1 },
+              "position": { "$ref": "#/$defs/position" }
+            }
+          }
+        }
+      }
+    },
+    "choice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "description",
+        "next",
+        "canonical",
+        "tensionDelta"
+      ],
+      "properties": {
+        "id": { "enum": ["A", "B", "C"] },
+        "label": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "next": { "$ref": "#/$defs/id" },
+        "canonical": { "type": "boolean" },
+        "tensionDelta": {
+          "type": "integer",
+          "minimum": -100,
+          "maximum": 100
+        }
+      }
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "chapter",
+        "speaker",
+        "narration",
+        "stageDirection",
+        "stage",
+        "choices"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "chapter": { "type": "string", "minLength": 1 },
+        "speaker": { "$ref": "#/$defs/id" },
+        "narration": {
+          "type": "string",
+          "minLength": 1,
+          "description": "只显示在底部旁白框中的第三人称场景描述"
+        },
+        "dialogue": {
+          "type": "string",
+          "minLength": 1,
+          "description": "只显示在人物头顶气泡中的直接引语，不写引号"
+        },
+        "stageDirection": { "type": "string", "minLength": 1 },
+        "stage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["characters"],
+          "properties": {
+            "playerPlacement": { "$ref": "#/$defs/playerPlacement" },
+            "bubble": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "visible": { "type": "boolean", "default": true },
+                "maxWidth": {
+                  "type": "integer",
+                  "minimum": 120,
+                  "maximum": 480,
+                  "default": 260
+                },
+                "offsetY": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 200,
+                  "default": 18
+                }
+              }
+            },
+            "sequence": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["beats"],
+              "properties": {
+                "beats": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 64,
+                  "items": { "$ref": "#/$defs/sequenceBeat" }
+                }
+              }
+            },
+            "characters": {
+              "type": "object",
+              "additionalProperties": { "$ref": "#/$defs/stageCharacter" }
+            }
+          }
+        },
+        "choices": {
+          "oneOf": [
+            { "type": "array", "maxItems": 0 },
+            {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    { "$ref": "#/$defs/choice" },
+                    { "properties": { "id": { "const": "A" } } }
+                  ]
+                },
+                {
+                  "allOf": [
+                    { "$ref": "#/$defs/choice" },
+                    { "properties": { "id": { "const": "B" } } }
+                  ]
+                },
+                {
+                  "allOf": [
+                    { "$ref": "#/$defs/choice" },
+                    { "properties": { "id": { "const": "C" } } }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "autoAdvance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["next", "delayMs"],
+          "properties": {
+            "next": { "$ref": "#/$defs/id" },
+            "delayMs": {
+              "type": "integer",
+              "minimum": 50,
+              "maximum": 120000
+            }
+          }
+        },
+        "ending": { "enum": ["CANON", "DETOUR", "PEACEFUL"] }
+      }
+    }
+  }
+}

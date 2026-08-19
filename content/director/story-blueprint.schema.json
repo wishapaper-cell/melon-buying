@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "剧情导演骨架",
+  "type": "object",
+  "required": [
+    "formatVersion",
+    "storylineId",
+    "cast",
+    "allowedObjects",
+    "allowedCommands",
+    "rules",
+    "anchors",
+    "fallback"
+  ],
+  "properties": {
+    "formatVersion": { "const": 1 },
+    "storylineId": { "type": "string", "minLength": 1 },
+    "cast": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "allowedObjects": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "allowedCommands": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": ["MOVE_TO", "FACE", "EMOTE", "SPEAK", "INTERACT", "WAIT"]
+      }
+    },
+    "rules": {
+      "type": "object",
+      "required": [
+        "maxBeats",
+        "maxCommandsPerBeat",
+        "maxDialogueLength",
+        "instantObjectTransfer",
+        "requireInteractionDistance",
+        "generateWinningBranchOnly"
+      ]
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "position", "faceTarget"],
+        "properties": {
+          "id": { "type": "string" },
+          "position": {
+            "type": "object",
+            "required": ["column", "row"],
+            "properties": {
+              "column": { "type": "integer", "minimum": 0 },
+              "row": { "type": "integer", "minimum": 0 }
+            }
+          },
+          "faceTarget": { "type": "string" }
+        }
+      }
+    },
+    "fallback": { "type": "object" }
+  },
+  "additionalProperties": false
+}
