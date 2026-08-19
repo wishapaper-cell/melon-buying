@@ -1,0 +1,1 @@
+{"id":"trash_bin","prefabId":"trash_bin","displayName":"垃圾桶","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","OPEN","CLOSED","OVERTURNED","EMPTY"],"supportedActions":["OBSERVE","INSPECT","OPEN","MOVE"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

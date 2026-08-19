@@ -1,0 +1,1 @@
+{"id":"price_sign","prefabId":"sign","displayName":"价格牌","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","TURNED","TORN","REMOVED"],"supportedActions":["OBSERVE","INSPECT","QUESTION","SHOW_EVIDENCE","MOVE"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

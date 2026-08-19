@@ -1,0 +1,1 @@
+{"id":"hao_scale","prefabId":"scale","displayName":"瓜摊台秤","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","LOADED","TAMPERED","MAGNET_REVEALED","BROKEN","REMOVED"],"supportedActions":["OBSERVE","INSPECT","WEIGH","MOVE","QUESTION","SHOW_EVIDENCE","REPAIR"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

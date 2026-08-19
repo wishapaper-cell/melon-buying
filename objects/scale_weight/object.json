@@ -1,0 +1,1 @@
+{"id":"scale_weight","prefabId":"scale_weight","displayName":"砝码","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","HELD","ON_SCALE","REMOVED"],"supportedActions":["OBSERVE","INSPECT","HOLD","WEIGH"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

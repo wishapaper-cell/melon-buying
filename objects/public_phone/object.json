@@ -1,0 +1,1 @@
+{"id":"public_phone","prefabId":"phone","displayName":"公用电话","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","IN_USE","BROKEN","OFF_HOOK"],"supportedActions":["OBSERVE","INSPECT","CALL","REPAIR"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

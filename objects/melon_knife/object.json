@@ -1,0 +1,1 @@
+{"id":"melon_knife","prefabId":"knife","displayName":"瓜刀","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","HELD","ON_BOARD","DULL","REMOVED"],"supportedActions":["OBSERVE","INSPECT","HOLD","CUT","MOVE"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

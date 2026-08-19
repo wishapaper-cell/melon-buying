@@ -1,0 +1,1 @@
+{"id":"short_stool","prefabId":"stool","displayName":"矮凳","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","OCCUPIED","FALLEN","BROKEN"],"supportedActions":["OBSERVE","INSPECT","SIT","MOVE","REPAIR"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

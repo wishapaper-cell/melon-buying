@@ -1,0 +1,1 @@
+{"id":"shop_door","prefabId":"door","displayName":"店铺门","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","OPEN","CLOSED","LOCKED"],"supportedActions":["OBSERVE","INSPECT","OPEN","QUESTION"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

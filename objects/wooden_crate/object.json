@@ -1,0 +1,1 @@
+{"id":"wooden_crate","prefabId":"crate","displayName":"木箱","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","OPEN","EMPTY","BROKEN"],"supportedActions":["OBSERVE","INSPECT","OPEN","MOVE"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

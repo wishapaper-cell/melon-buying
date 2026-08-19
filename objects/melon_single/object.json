@@ -1,0 +1,1 @@
+{"id":"melon_single","prefabId":"melon","displayName":"西瓜","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","HELD","ON_SCALE","CUT_RIPE","CUT_UNRIPE","BROKEN","REMOVED"],"supportedActions":["OBSERVE","INSPECT","HOLD","WEIGH","CUT","MOVE"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

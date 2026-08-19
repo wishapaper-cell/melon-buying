@@ -1,0 +1,1 @@
+{"id":"melon_pile","prefabId":"melon_pile","displayName":"西瓜堆","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","DISTURBED","EMPTY"],"supportedActions":["OBSERVE","INSPECT","MOVE"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

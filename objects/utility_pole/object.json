@@ -1,0 +1,1 @@
+{"id":"utility_pole","prefabId":"utility_pole","displayName":"电线杆","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED"],"supportedActions":["OBSERVE","INSPECT"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

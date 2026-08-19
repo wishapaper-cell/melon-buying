@@ -1,0 +1,1 @@
+{"id":"drainage_ditch","prefabId":"ditch","displayName":"排水沟","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","BLOCKED","CLEARED","WET"],"supportedActions":["OBSERVE","INSPECT","MOVE"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

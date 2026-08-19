@@ -1,0 +1,1 @@
+{"id":"melon_cut","prefabId":"melon","displayName":"切开的西瓜","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","RIPE","UNRIPE","BROKEN","REMOVED"],"supportedActions":["OBSERVE","INSPECT","HOLD","SHOW_EVIDENCE"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

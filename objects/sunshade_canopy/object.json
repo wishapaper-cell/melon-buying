@@ -1,0 +1,1 @@
+{"id":"sunshade_canopy","prefabId":"canopy","displayName":"遮阳棚","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","FOLDED","TORN","WET","REPAIRED"],"supportedActions":["OBSERVE","INSPECT","OPEN","REPAIR"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}

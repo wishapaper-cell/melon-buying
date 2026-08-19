@@ -1,0 +1,1 @@
+{"id":"motorcycle","prefabId":"motorcycle","displayName":"摩托车","defaultState":"DEFAULT","availableStates":["DEFAULT","HOVER","FOCUSED","RIDING","DAMAGED","ABSENT"],"supportedActions":["OBSERVE","INSPECT","RIDE","MOVE","REPAIR"],"visualStrategy":"CODE_NATIVE_SVG_WITH_PROGRAM_OVERLAYS"}
