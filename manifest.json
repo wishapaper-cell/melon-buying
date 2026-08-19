@@ -1,0 +1,176 @@
+{
+  "player": {
+    "right": [
+      "/assets/generated/sprites/player_walk_right_0.png",
+      "/assets/generated/sprites/player_walk_right_1.png",
+      "/assets/generated/sprites/player_walk_right_2.png",
+      "/assets/generated/sprites/player_walk_right_3.png",
+      "/assets/generated/sprites/player_walk_right_4.png",
+      "/assets/generated/sprites/player_walk_right_5.png",
+      "/assets/generated/sprites/player_walk_right_6.png",
+      "/assets/generated/sprites/player_walk_right_7.png"
+    ],
+    "left": [
+      "/assets/generated/sprites/player_walk_left_0.png",
+      "/assets/generated/sprites/player_walk_left_1.png",
+      "/assets/generated/sprites/player_walk_left_2.png",
+      "/assets/generated/sprites/player_walk_left_3.png",
+      "/assets/generated/sprites/player_walk_left_4.png",
+      "/assets/generated/sprites/player_walk_left_5.png",
+      "/assets/generated/sprites/player_walk_left_6.png",
+      "/assets/generated/sprites/player_walk_left_7.png"
+    ],
+    "idle": [
+      "/assets/generated/sprites/player_idle_0.png",
+      "/assets/generated/sprites/player_idle_1.png",
+      "/assets/generated/sprites/player_idle_2.png",
+      "/assets/generated/sprites/player_idle_3.png"
+    ]
+  },
+  "npcs": {
+    "vendor": {
+      "right": "/assets/generated/sprites/vendor_right.png",
+      "left": "/assets/generated/sprites/vendor_left.png"
+    },
+    "haoFall": [
+      "/assets/generated/sprites/hao_fall_0.png",
+      "/assets/generated/sprites/hao_fall_1.png",
+      "/assets/generated/sprites/hao_fall_2.png",
+      "/assets/generated/sprites/hao_fall_3.png",
+      "/assets/generated/sprites/hao_fall_4.png",
+      "/assets/generated/sprites/hao_fall_5.png",
+      "/assets/generated/sprites/hao_fall_6.png",
+      "/assets/generated/sprites/hao_fall_7.png"
+    ],
+    "haoInjured": "/assets/generated/sprites/hao_injured.png",
+    "haoAngry": "/assets/generated/sprites/hao_angry.png",
+    "haoPickMelonSheet": {
+      "asset": "/assets/generated/sprites/hao_pick_melon_sheet.png",
+      "columns": 4,
+      "rows": 1,
+      "frames": ["reach", "lift", "hold", "pat"]
+    },
+    "huaqiangHeld": {
+      "melon": {
+        "left": "/assets/generated/sprites/huaqiang_hold_melon_left.png",
+        "right": "/assets/generated/sprites/huaqiang_hold_melon_right.png"
+      },
+      "knife": {
+        "left": "/assets/generated/sprites/huaqiang_hold_knife_left.png",
+        "right": "/assets/generated/sprites/huaqiang_hold_knife_right.png"
+      },
+      "magnet": {
+        "left": "/assets/generated/sprites/huaqiang_show_magnet_left.png",
+        "right": "/assets/generated/sprites/huaqiang_show_magnet_right.png"
+      },
+      "motorcycle": {
+        "left": "/assets/generated/sprites/huaqiang_ride_motorcycle_left.png",
+        "right": "/assets/generated/sprites/huaqiang_ride_motorcycle_right.png"
+      }
+    },
+    "haoHeld": {
+      "melon": {
+        "left": "/assets/generated/sprites/hao_hold_melon_left.png",
+        "right": "/assets/generated/sprites/hao_hold_melon_right.png"
+      },
+      "knife": {
+        "left": "/assets/generated/sprites/hao_hold_knife_left.png",
+        "right": "/assets/generated/sprites/hao_hold_knife_right.png"
+      },
+      "weight": {
+        "left": "/assets/generated/sprites/hao_hold_weight_left.png",
+        "right": "/assets/generated/sprites/hao_hold_weight_right.png"
+      }
+    },
+    "ambient": {
+      "walkFrames": 4,
+      "walkPattern": "/assets/generated/sprites/ambient/{kind}_walk_{frame}_{direction}.png",
+      "passerbyMan": {
+        "left": "/assets/generated/sprites/ambient/passerby_man_left.png",
+        "right": "/assets/generated/sprites/ambient/passerby_man_right.png"
+      },
+      "passerbyWoman": {
+        "left": "/assets/generated/sprites/ambient/passerby_woman_left.png",
+        "right": "/assets/generated/sprites/ambient/passerby_woman_right.png"
+      },
+      "coolingOldman": {
+        "left": "/assets/generated/sprites/ambient/cooling_oldman_left.png",
+        "right": "/assets/generated/sprites/ambient/cooling_oldman_right.png"
+      },
+      "deliveryWorker": {
+        "left": "/assets/generated/sprites/ambient/delivery_worker_left.png",
+        "right": "/assets/generated/sprites/ambient/delivery_worker.png",
+        "walkPattern": "/assets/generated/sprites/ambient/delivery_worker_walk_{frame}_{direction}.png"
+      },
+      "cyclist": {
+        "left": "/assets/generated/sprites/ambient/cyclist_left.png",
+        "right": "/assets/generated/sprites/ambient/cyclist.png",
+        "walkPattern": "/assets/generated/sprites/ambient/cyclist_walk_{frame}_{direction}.png"
+      },
+      "basketGrandma": {
+        "left": "/assets/generated/sprites/ambient/basket_grandma_left.png",
+        "right": "/assets/generated/sprites/ambient/basket_grandma.png",
+        "walkPattern": "/assets/generated/sprites/ambient/basket_grandma_walk_{frame}_{direction}.png"
+      },
+      "streetDog": {
+        "left": "/assets/generated/sprites/ambient/street_dog_left.png",
+        "right": "/assets/generated/sprites/ambient/street_dog_right.png"
+      },
+      "yellowDragon": {
+        "left": "/assets/generated/sprites/ambient/yellow_dragon_left.png",
+        "right": "/assets/generated/sprites/ambient/yellow_dragon_right.png"
+      },
+      "hallucinations": {
+        "frames": 4,
+        "pattern": "/assets/generated/sprites/hallucinations/{kind}_{direction}_{frame}.png",
+        "kinds": [
+          "nailong",
+          "guga",
+          "knife_shield",
+          "bibila"
+        ]
+      }
+    },
+    "neighbor": {
+      "left": "/assets/generated/sprites/neighbor_left.png",
+      "right": "/assets/generated/sprites/neighbor_right.png"
+    }
+  },
+  "ui": {
+    "header": "/assets/generated/ui/header-plaque.png",
+    "panel": "/assets/generated/ui/dialogue-panel.png",
+    "redButton": "/assets/generated/ui/button-red.png",
+    "greenButton": "/assets/generated/ui/button-green.png"
+  },
+  "props": {
+    "market_stall": "/assets/generated/props/market_stall.png",
+    "melon_rack": "/assets/generated/props/melon_rack.png",
+    "melon_pallet": "/assets/generated/props/melon_pallet.png",
+    "melon_pile": "/assets/generated/props/melon_pile.png",
+    "hao_scale_prop": "/assets/generated/props/hao_scale_prop.png",
+    "cutting_table": "/assets/generated/props/cutting_table.png",
+    "empty_crate": "/assets/generated/props/empty_crate.png",
+    "melon_basket": "/assets/generated/props/melon_basket.png",
+    "short_stool_prop": "/assets/generated/props/short_stool_prop.png",
+    "price_board": "/assets/generated/props/price_board.png",
+    "single_melon": "/assets/generated/props/single_melon_whole.png",
+    "cut_melon_unripe": "/assets/generated/props/cut_melon_unripe.png",
+    "street_tree": "/assets/generated/props/street-tree.png",
+    "street_tree_chomper": "/assets/generated/props/street-tree-chomper.png",
+    "street_shrub": "/assets/generated/props/street-shrub.png",
+    "flower_bush": "/assets/generated/props/flower-bush.png",
+    "black_motorcycle": "/assets/generated/props/black_motorcycle.png"
+  },
+  "scene": "/assets/generated/market-map-8bit.png",
+  "audio": {
+    "nailongLaugh": "/assets/audio/nailong-laugh.mp3",
+    "guga": "/assets/audio/7月25日(1)咕咕嘎嘎.MP3",
+    "knifeShield": "/assets/audio/7月25日(1)我的刀盾.MP3",
+    "bibila": "/assets/audio/7月25日(1)比比拉布.MP3"
+  },
+  "canvas": {
+    "width": 64,
+    "height": 96,
+    "footMargin": 2
+  }
+}
