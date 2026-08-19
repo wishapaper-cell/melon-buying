@@ -1,0 +1,9 @@
+fastapi>=0.115,<1
+uvicorn[standard]>=0.34,<1
+httpx>=0.28,<1
+websockets>=16,<17
+pydantic>=2.10,<3
+python-dotenv>=1.0,<2
+brotli>=1.1,<2
+Pillow>=10.4,<12
+gradio_client>=1.3

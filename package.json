@@ -1,0 +1,34 @@
+{
+  "name": "huaqiang-infinite-worldlines",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python -X utf8 main.py",
+    "dev:server": "python -X utf8 -m uvicorn backend.main:app --host 127.0.0.1 --port 8767",
+    "dev:game": "vite",
+    "start": "python -X utf8 -m uvicorn backend.main:app --host 127.0.0.1 --port 8767",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:backend": "python -m unittest discover -s backend/tests -p \"test_*.py\"",
+    "audio:prewarm": "python -X utf8 scripts/prewarm_commentary_audio.py",
+    "story:validate": "vite-node scripts/validate_story.ts",
+    "check": "npm run story:validate && npm run test && npm run test:backend && npm run build"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.32",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.5.2",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  }
+}
